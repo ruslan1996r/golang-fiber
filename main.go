@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"os"
 
 	"fiber/database"
 	"fiber/database/migration"
@@ -21,9 +22,10 @@ func main() {
 
 	route.RouterInit(app)
 
-	err := app.Listen(":8080")
+	appErr := app.Listen(":8080")
 
-	if err != nil {
+	if appErr != nil {
 		fmt.Println("Server Init Error!")
+		os.Exit(1)
 	}
 }

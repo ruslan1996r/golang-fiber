@@ -1,7 +1,6 @@
 package route
 
 import (
-	"fiber/database/config"
 	"fiber/handler"
 	"fiber/route/middleware"
 	"fiber/utils"
@@ -11,7 +10,8 @@ import (
 
 func RouterInit(r *fiber.App) {
 	r.Get("/metrics", monitor.New(monitor.Config{Title: "Test Golang App!"}))
-	r.Static("/public", config.PathFromRoot("/public/asset")) // http://127.0.0.1:8080/public/pepe.jpg
+	// r.Static("/public", config.PathFromRoot("/public/asset")) // http://127.0.0.1:8080/public/pepe.jpg
+	r.Static("/public", "./public") // http://127.0.0.1:8080/public/(covers/asset)/pepe.jpg
 	r.Get("/test", handler.TestMultithreading)
 
 	r.Post("/login", handler.LoginHandler)

@@ -16,6 +16,7 @@ var DB *gorm.DB
 func DBInit() {
 	var err error
 
+	// TODO: database_url := os.Getenv(utils.DATABASE_URL)
 	const MYSQL = "root:root1user@tcp(127.0.0.1:3306)/go_fiber_gorm?charset=utf8mb4&parseTime=True&loc=Local"
 	dsn := MYSQL
 
